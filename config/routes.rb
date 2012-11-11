@@ -4,6 +4,8 @@ Wannaknow::Application.routes.draw do
 
   resources :projects
 
+  match 'demo' => 'home#index'
+
   authenticated :user do
     root :to => 'home#index'
   end
