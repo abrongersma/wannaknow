@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-  attr_accessible :body, :funded, :title, :video
-  has_many :userprojects
-  has_many :users, :through => :userprojects
+  attr_accessible :body, :title, :video, :funding_goal, :current_funding
+  has_many :user_projects
+  has_many :users, :through => :user_projects
+  
 end

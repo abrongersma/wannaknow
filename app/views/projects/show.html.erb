@@ -14,10 +14,19 @@
   <b>Video:</b>
   <%= @project.video %>
 </p>
-
+<p>
+  <b>Funding Goal:</b>
+  <%= @project.funding_goal %>
+</p>
+<p>
+  <b>Current Funding:</b>
+  <%= @project.current_funding %>
+</p>
 <p>
   <b>Funded:</b>
-  <%= @project.funded %>
+  <% if @project.funded %>
+    <%= puts 'Funded!' %>
+  <% end %>
 </p>
 
 

@@ -11,15 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111012400) do
+ActiveRecord::Schema.define(:version => 20121111164756) do
 
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.string   "body"
     t.string   "video"
     t.boolean  "funded"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "funding_goal"
+    t.integer  "current_funding"
+    t.integer  "user_id"
+    t.boolean  "active"
   end
 
   create_table "roles", :force => true do |t|
@@ -39,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20121111012400) do
     t.boolean  "expert"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "owner"
+    t.integer  "follower"
   end
 
   create_table "users", :force => true do |t|

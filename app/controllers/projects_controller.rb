@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /projects
   # GET /projects.json
   def index
@@ -45,8 +46,11 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
+    
     respond_to do |format|
       if @project.save
+        @user_project = UserProject.new(:user_id => @user.id, :project_id => @project.id, :owner =>true)
+        @user_project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -83,4 +87,5 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

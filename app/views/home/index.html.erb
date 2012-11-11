@@ -1,1 +1,25 @@
-<h3>Home</h3>
+
+
+
+<h3>Active Projects</h3>
+
+<table>
+  <tr>
+    <th>Funding Goal</th>
+    <th>Topic</th>
+    <th>Video Link</th>
+    <th>% funded</th>
+    <th>Link</th>
+  </tr>  
+  <% if !@projects.empty? %>
+    <% @projects.each do |project| %>
+      <tr>
+      <td><%= project.funding_goal %></td>
+      <td><%= project.title %></td>
+      <td><%= project.video %></td>
+      <td><%= project.current_funding %></td>
+      <td><%= link_to 'Show', project %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
